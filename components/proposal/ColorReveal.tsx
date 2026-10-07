@@ -154,7 +154,7 @@ export function ColorReveal({
             <motion.ul
               variants={fadeUp}
               aria-label="The seven bridesmaid colours"
-              className="mt-12 flex max-w-100 flex-wrap justify-center gap-3 sm:max-w-180 sm:gap-4"
+              className="mt-12 flex max-w-105 flex-wrap justify-center gap-2.5 sm:max-w-180 sm:gap-4"
             >
               {bridesmaidColors.map((swatch, index) => {
                 const isActive = active === index
@@ -170,10 +170,14 @@ export function ColorReveal({
                   opacity = phase === 'landed' ? 0.25 : 0.5
                 }
 
+                const isPastel = swatch.name.startsWith('Pastel ')
+                const prefix = isPastel ? 'Pastel' : null
+                const colorTitle = isPastel ? swatch.name.replace('Pastel ', '') : swatch.name
+
                 return (
                   <motion.li
                     key={swatch.name}
-                    className="w-19 rounded-[10px] bg-paper p-1.5 pb-2.5 shadow-[0_10px_24px_-14px_rgba(60,45,30,.35),0_0_0_1px_rgba(120,95,65,.08)] sm:w-22"
+                    className="w-21 rounded-[11px] bg-paper p-1.5 pb-2.5 shadow-[0_10px_24px_-14px_rgba(60,45,30,.35),0_0_0_1px_rgba(120,95,65,.08)] sm:w-24 sm:p-2 sm:pb-3"
                     animate={{
                       y: isActive ? -12 : 0,
                       scale,
@@ -190,9 +194,16 @@ export function ColorReveal({
                           : 'inset 0 0 0 1px rgba(0,0,0,.05)',
                       }}
                     />
-                    <span className="mt-2 block text-[0.56rem] leading-tight font-semibold tracking-[0.16em] text-ink-soft uppercase">
-                      {swatch.name.replace('Pastel ', 'Pastel\u00a0')}
-                    </span>
+                    <div className="mt-1.5 flex min-h-7 flex-col items-center justify-center px-0.5 text-center">
+                      {prefix && (
+                        <span className="block text-[0.48rem] leading-none font-medium tracking-[0.14em] text-muted uppercase sm:text-[0.52rem]">
+                          {prefix}
+                        </span>
+                      )}
+                      <span className="mt-0.5 block text-[0.62rem] leading-tight font-semibold tracking-[0.06em] text-ink uppercase sm:text-[0.7rem]">
+                        {colorTitle}
+                      </span>
+                    </div>
                   </motion.li>
                 )
               })}
@@ -281,7 +292,7 @@ function ColorResult({
 
       <motion.h2
         variants={fadeUp}
-        className="mt-12 font-display text-[clamp(2.4rem,11vw,4.6rem)] leading-none font-normal tracking-widest text-ink uppercase"
+        className="mt-12 px-4 text-balance font-display text-[clamp(2.2rem,10vw,4.5rem)] leading-tight font-normal tracking-wide sm:tracking-widest text-ink uppercase"
       >
         {color.name}
       </motion.h2>

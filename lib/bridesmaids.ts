@@ -125,10 +125,10 @@ export const bridesmaids = {
     postscript: 'I would love to have you cheering me on as I walk into this beautiful new chapter. 🤍',
   },
 
-  yewande: {
-    slug: 'yewande',
-    name: 'Zekinat Yewande',
-    shortName: 'Yewande',
+  zekinat: {
+    slug: 'zekinat',
+    name: 'Zekinat Akinwande',
+    shortName: 'Zeki Baby',
     role: 'My Emotional Outlet',
     roleShort: 'Emotional Outlet',
     weddingRole: 'Bridesmaid',
@@ -136,7 +136,7 @@ export const bridesmaids = {
     randomColor: true,
     message:
       'My safe place to vent, laugh, cry, overthink, and simply be myself \u2014 no editing required.',
-    salutation: 'My Yewande,',
+    salutation: 'My Zek Baby,',
     letter: [
       'You are one of those people I don\u2019t have to explain myself to.',
       '**With you, I can feel everything.**',
@@ -146,7 +146,7 @@ export const bridesmaids = {
       'And honestly, every bride needs someone she can call and say, \u201cPlease, let me tell you what just happened!\u201d 😂',
       'As I get ready for one of the biggest days of my life, I want my emotional outlet, my listener, my gist partner, and my safe place right there with me.',
     ],
-    leadIn: 'So, Yewande...',
+    leadIn: 'So, Zekinat...',
     postscript: 'I promise there will be plenty of emotions for you to help me process. 😂🤍',
   },
 
@@ -177,10 +177,10 @@ export const bridesmaids = {
       'Your assignment is simple: bring the vibes and make sure nobody is sitting down when they should be dancing. 😂💃🏽🤍',
   },
 
-  olusola: {
-    slug: 'olusola',
-    name: 'Mojoyinola Olusola-Dada',
-    shortName: 'Olusola',
+  mojoyinade: {
+    slug: 'mojoyinade',
+    name: 'Mojoyinadejesu Olusola-Dada',
+    shortName: 'Mojoyinadejesu',
     role: 'My Unhinged Content Creator',
     roleShort: 'Content Creator',
     weddingRole: 'Bridesmaid',
@@ -188,7 +188,7 @@ export const bridesmaids = {
     randomColor: true,
     message:
       'You turn ordinary moments into memories (and content). Humour and personality in absolutely everything.',
-    salutation: 'My Olusola,',
+    salutation: 'My Mojoyinade,',
     letter: [
       'There are people who take pictures...',
       'And then there is **you.** 😂',
@@ -221,7 +221,7 @@ export const bridesmaids = {
       'You know what I find so funny about you?',
       '**You notice EVERYTHING.** 😂',
       'Nothing gets past you.',
-      'You can be sitting quietly somewhere and somehow you\u2019ve already observed the entire situation, identified the characters, understood the dynamics, and \u2014 most importantly \u2014 you have the gist.',
+      'You can be sitting quietly somewhere and somehow you\u2019ve already observed the entire situation, identified the characters, understood the dynamics, and most importantly, you have the gist.',
       'And somehow, your commentary always makes everything ten times more entertaining.',
       'But beyond the gist and the observations, I love having you around because you bring such a unique perspective to things. You notice the little details, you see things from angles other people might miss, and you always seem to have something to say about it.',
       'As I prepare for my wedding, I already know there will be approximately 47,000 things happening at once.',
