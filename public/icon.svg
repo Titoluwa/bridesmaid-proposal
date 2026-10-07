@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <radialGradient id="seal" cx="38%" cy="32%" r="75%">
+      <stop offset="0" stop-color="#E9D4A6"/>
+      <stop offset=".55" stop-color="#C9AB6E"/>
+      <stop offset="1" stop-color="#A3843F"/>
+    </radialGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="#FAF9F6"/>
+  <circle cx="90" cy="90" r="62" fill="url(#seal)"/>
+  <circle cx="90" cy="90" r="50" fill="none" stroke="#FFF8EA" stroke-opacity=".55" stroke-width="2"/>
+  <text x="90" y="104" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="40" fill="#FFF8EA">T&amp;M</text>
+</svg>
