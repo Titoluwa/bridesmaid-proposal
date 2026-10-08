@@ -78,21 +78,21 @@ export function FinalMessage({ bridesmaid, onReadAgain }: Readonly<Props>) {
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.07-.942.07-.942 0-2.02-.387-3.037-1.404-1.353-1.354-1.89-2.73-1.89-3.666 0-.616.273-1.178.694-1.442.127-.08.273-.122.42-.122.102 0 .204.025.297.07.28.136.671 1.042.723 1.15.05.109.077.228.025.352-.05.123-.153.272-.255.394-.103.12-.218.239-.103.444.254.453.79 1.144 1.488 1.62.482.33 1.017.519 1.258.625.178.077.332.062.445-.062.158-.175.467-.604.629-.838.12-.172.278-.174.453-.105.176.069 1.118.528 1.311.625.193.097.322.144.37.225.048.081.048.47-.096.875zM12 2C6.477 2 2 6.477 2 12c0 1.81.487 3.506 1.334 4.966L2 22l5.176-1.309A9.94 9.94 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.583 0-3.06-.445-4.324-1.218l-.31-.188-3.058.773.816-2.983-.207-.33A8.156 8.156 0 0 1 3.8 12c0-4.521 3.679-8.2 8.2-8.2 4.522 0 8.2 3.679 8.2 8.2 0 4.522-3.678 8.2-8.2 8.2z" />
           </svg>
         </div>
-        <p className="eyebrow mt-3 text-[0.62rem]">Official Bridal Party Chat</p>
+        <p className="eyebrow mt-3 text-[0.62rem]">Official Bridesmaids Group</p>
         <h3 className="mt-1 font-display text-2xl font-light text-ink sm:text-[1.75rem]">
           Join Our WhatsApp Group
         </h3>
-        <p className="mt-2 text-xs leading-relaxed text-muted sm:text-sm">
+        {/* <p className="mt-2 text-xs leading-relaxed text-muted sm:text-sm">
           Let the planning, excitement, and gist begin! Click below to join the official WhatsApp group for all bridal party updates.
-        </p>
+        </p> */}
         <a
           href="https://chat.whatsapp.com/IYC7ytqtX0aCXO9fojjCPc?s=cl&p=i&ilr=4&iam=0"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-xs font-semibold tracking-wider text-white uppercase shadow-sm transition-all duration-300 hover:bg-[#20ba5a] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-xs font-semibold tracking-wider text-white shadow-sm transition-all duration-300 hover:bg-[#20ba5a] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
         >
-          <span>Join WhatsApp Group 💬</span>
-          <span aria-hidden>→</span>
+          <span>Join WhatsApp Group</span>
+          {/* <span aria-hidden>→</span> */}
         </a>
       </motion.div>
 
