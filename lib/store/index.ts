@@ -48,7 +48,7 @@ function createResilientStore(databaseUrl: string): ResponseStore {
     all: () => withFallback((s) => s.all()),
     recordOpen: (slug) => withFallback((s) => s.recordOpen(slug)),
     recordAccept: (slug, hesitations) => withFallback((s) => s.recordAccept(slug, hesitations)),
-    assignColor: (slug, candidate) => withFallback((s) => s.assignColor(slug, candidate)),
+    assignColor: (slug, candidate, palette) => withFallback((s) => s.assignColor(slug, candidate, palette)),
     reset: (slug) => withFallback((s) => s.reset(slug)),
   }
 }

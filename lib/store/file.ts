@@ -1,6 +1,7 @@
+import { randomInt } from 'node:crypto'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import type { BridesmaidColor } from '@/lib/bridesmaids'
+import { bridesmaidColors, isBridesmaidSlug, type BridesmaidColor } from '@/lib/bridesmaids'
 import { emptyRecord, type ResponseRecord, type ResponseStore } from './types'
 
 type FileShape = Record<string, ResponseRecord>
@@ -31,11 +32,14 @@ export function createFileStore(filePath = path.join(process.cwd(), '.data', 're
     await fs.rename(tmp, filePath)
   }
 
-  function mutate(slug: string, fn: (record: ResponseRecord, now: string) => ResponseRecord) {
+  function mutate(
+    slug: string,
+    fn: (record: ResponseRecord, now: string, all: FileShape) => ResponseRecord,
+  ) {
     const run = queue.then(async () => {
       const data = await read()
       const now = new Date().toISOString()
-      const next = fn(data[slug] ?? emptyRecord(slug), now)
+      const next = fn(data[slug] ?? emptyRecord(slug), now, data)
       data[slug] = next
       await write(data)
       return next
@@ -68,19 +72,45 @@ export function createFileStore(filePath = path.join(process.cwd(), '.data', 're
       }))
     },
 
-    assignColor(slug, candidate: BridesmaidColor) {
-      return mutate(slug, (r, now) =>
-        r.colorName
-          ? r
-          : {
-              ...r,
-              openedAt: r.openedAt ?? now,
-              acceptedAt: r.acceptedAt ?? now,
-              colorName: candidate.name,
-              colorHex: candidate.hex,
-              colorAssignedAt: now,
-            },
-      )
+    assignColor(slug, candidate: BridesmaidColor, palette?: BridesmaidColor[]) {
+      return mutate(slug, (r, now, all) => {
+        // If this bridesmaid already has a color assigned, keep it.
+        if (r.colorName) {
+          return r
+        }
+
+        const pool = palette ?? bridesmaidColors
+
+        // Find all colors already claimed by other valid bridesmaids
+        const takenNames = new Set<string>()
+        const takenHexes = new Set<string>()
+
+        for (const [otherSlug, rec] of Object.entries(all)) {
+          if (otherSlug !== slug && isBridesmaidSlug(otherSlug) && rec.colorName) {
+            takenNames.add(rec.colorName.toLowerCase().trim())
+            if (rec.colorHex) takenHexes.add(rec.colorHex.toLowerCase().trim())
+          }
+        }
+
+        const available = pool.filter((c) => {
+          const nameTaken = takenNames.has(c.name.toLowerCase().trim())
+          const hexTaken = takenHexes.has(c.hex.toLowerCase().trim())
+          return !nameTaken && !hexTaken
+        })
+
+        // Pick randomly from only the unassigned colors
+        const chosen =
+          available.length > 0 ? available[randomInt(available.length)] : candidate
+
+        return {
+          ...r,
+          openedAt: r.openedAt ?? now,
+          acceptedAt: r.acceptedAt ?? now,
+          colorName: chosen.name,
+          colorHex: chosen.hex,
+          colorAssignedAt: now,
+        }
+      })
     },
 
     async reset(slug) {

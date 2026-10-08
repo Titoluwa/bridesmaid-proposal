@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import type { Bridesmaid, BridesmaidColor } from '@/lib/bridesmaids'
+import { findColor, type Bridesmaid, type BridesmaidColor } from '@/lib/bridesmaids'
 import type { ResponseRecord } from '@/lib/store/types'
 import {
   acceptProposalAction,
@@ -34,11 +34,15 @@ type Props = {
 export function BridesmaidExperience({ bridesmaid, initialRecord, preview = false }: Readonly<Props>) {
   const [step, setStep] = useState<Step>('envelope')
   const [assignedColor, setAssignedColor] = useState<BridesmaidColor | null>(() => {
-    if (initialRecord?.colorName && initialRecord.colorHex) {
-      return {
-        name: initialRecord.colorName,
-        hex: initialRecord.colorHex,
-        emoji: '💜',
+    if (initialRecord?.colorName) {
+      const match = findColor(initialRecord.colorName)
+      if (match) return match
+      if (initialRecord.colorHex) {
+        return {
+          name: initialRecord.colorName,
+          hex: initialRecord.colorHex,
+          emoji: '💜',
+        }
       }
     }
     return null

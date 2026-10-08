@@ -20,10 +20,16 @@ export interface ResponseStore {
   recordOpen(slug: string): Promise<ResponseRecord>
   recordAccept(slug: string, hesitations: number): Promise<ResponseRecord>
   /**
-   * First write wins: if a colour is already stored for this slug the
-   * existing colour is kept and returned, and `candidate` is ignored.
+   * Assigns a colour to a bridesmaid. If she already has a colour assigned,
+   * her existing record is returned. If not yet assigned, picks randomly
+   * from the unassigned colours in `palette` (or uses `candidate` if none
+   * are available), ensuring no two bridesmaids get the same colour.
    */
-  assignColor(slug: string, candidate: BridesmaidColor): Promise<ResponseRecord>
+  assignColor(
+    slug: string,
+    candidate: BridesmaidColor,
+    palette?: BridesmaidColor[],
+  ): Promise<ResponseRecord>
   reset(slug: string): Promise<void>
 }
 

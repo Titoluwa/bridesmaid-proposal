@@ -1,7 +1,7 @@
 'use server'
 
 import { randomInt } from 'node:crypto'
-import { bridesmaidColors, getBridesmaid, type BridesmaidColor } from '@/lib/bridesmaids'
+import { bridesmaidColors, findColor, getBridesmaid, type BridesmaidColor } from '@/lib/bridesmaids'
 import { getStore } from '@/lib/store'
 
 export type ActionResult<T = undefined> = { ok: true; data: T } | { ok: false; error: string }
@@ -39,9 +39,10 @@ export async function acceptProposalAction(slug: string, hesitations: number) {
 }
 
 /**
- * Picks a random pastel colour on the server and persists it.
+ * Picks a random pastel colour from the remaining unassigned colours and persists it.
  * If she already has one, her existing colour is returned instead —
  * so refreshing or reopening the link can never change it.
+ * Once assigned, another bridesmaid cannot receive this colour.
  */
 export async function revealColorAction(slug: string): Promise<ActionResult<BridesmaidColor>> {
   return attempt(async () => {
@@ -49,8 +50,8 @@ export async function revealColorAction(slug: string): Promise<ActionResult<Brid
     if (!bridesmaid.randomColor) throw new Error('This bridesmaid has fixed colours')
 
     const candidate = bridesmaidColors[randomInt(bridesmaidColors.length)]
-    const record = await getStore().assignColor(slug, candidate)
-    const assigned = bridesmaidColors.find((color) => color.name === record.colorName)
+    const record = await getStore().assignColor(slug, candidate, bridesmaidColors)
+    const assigned = findColor(record.colorName)
     if (!assigned) throw new Error('Stored colour is not in the palette')
     return assigned
   })

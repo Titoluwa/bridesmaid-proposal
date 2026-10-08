@@ -69,7 +69,13 @@ export const defaultAccent = '#E7D3A8'
 
 export function findColor(name?: string | null) {
   if (!name) return undefined
-  return bridesmaidColors.find((color) => color.name === name)
+  const clean = name.toLowerCase().trim()
+  return (
+    bridesmaidColors.find((color) => color.name === name) ??
+    bridesmaidColors.find((color) => color.name.toLowerCase() === clean) ??
+    bridesmaidColors.find((color) => `pastel ${color.name.toLowerCase()}` === clean) ??
+    bridesmaidColors.find((color) => color.name.toLowerCase() === `pastel ${clean}`)
+  )
 }
 
 /* -------------------------------------------------------------------------- */
