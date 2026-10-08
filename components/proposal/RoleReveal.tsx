@@ -19,13 +19,13 @@ export function RoleReveal({ bridesmaid, onBack, onContinue }: Props) {
       variants={stagger(0.35, 0.3)}
       initial="hidden"
       animate="show"
-      className="flex flex-1 flex-col items-center justify-center px-6 pt-10 pb-20 text-center"
+      className="flex flex-1 flex-col items-center justify-center px-4 pt-8 pb-16 text-center sm:px-6 sm:pt-10 sm:pb-20"
     >
       <motion.p variants={fadeUp} className="eyebrow">
         In my story, you are
       </motion.p>
 
-      <motion.div variants={fadeUp} className="relative mt-10">
+      <motion.div variants={fadeUp} className="relative mt-8 sm:mt-10">
         {/* halo */}
         <motion.div
           aria-hidden
@@ -34,8 +34,8 @@ export function RoleReveal({ bridesmaid, onBack, onContinue }: Props) {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 2.4, ease: easeSoft, delay: 0.6 }}
         />
-        <span className="block font-script text-[2.6rem] leading-none text-muted sm:text-5xl">My</span>
-        <h2 className="mt-2 max-w-[14ch] font-display text-[clamp(3rem,13vw,6.5rem)] leading-[0.95] font-light tracking-[-0.02em] text-balance text-ink italic">
+        <span className="block font-script text-[2.2rem] leading-none text-muted sm:text-5xl">My</span>
+        <h2 className="mt-2 max-w-[14ch] px-2 text-balance break-words font-display text-[clamp(2.3rem,10.5vw,5.5rem)] leading-[0.98] font-light tracking-[-0.02em] text-ink italic">
           {title}
         </h2>
       </motion.div>

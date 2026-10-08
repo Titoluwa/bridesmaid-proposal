@@ -60,17 +60,17 @@ export function ColorSummary({ bridesmaid, color, onContinue }: Readonly<Props>)
   }
 
   return (
-    <section className="flex flex-1 flex-col items-center justify-center px-5 pt-8 pb-20 text-center">
+    <section className="flex flex-1 flex-col items-center justify-center px-3.5 pt-6 pb-16 text-center sm:px-5 sm:pt-8 sm:pb-20">
       <motion.article
         initial={{ opacity: 0, y: 50, rotate: 1.5 }}
         animate={{ opacity: 1, y: 0, rotate: 0 }}
         transition={{ duration: 1.3, ease: easeSoft }}
-        className="letter-paper paper-grain relative w-full max-w-100 overflow-hidden rounded-[4px] px-8 pt-12 pb-12"
+        className="letter-paper paper-grain relative w-full max-w-100 overflow-hidden rounded-[4px] px-5 py-9 sm:px-8 sm:py-12"
         aria-label={`${bridesmaid.shortName}'s keepsake card`}
       >
         {/* frames */}
-        <div aria-hidden className="pointer-events-none absolute inset-3 border border-line" />
-        <div aria-hidden className="pointer-events-none absolute inset-4.5 border border-accent/60" />
+        <div aria-hidden className="pointer-events-none absolute inset-2.5 border border-line sm:inset-3" />
+        <div aria-hidden className="pointer-events-none absolute inset-3.5 border border-accent/60 sm:inset-4.5" />
         {/* colour wash */}
         <div
           aria-hidden
@@ -90,53 +90,53 @@ export function ColorSummary({ bridesmaid, color, onContinue }: Readonly<Props>)
           <motion.p variants={fadeUp} className="eyebrow">
             The bridal party of
           </motion.p>
-          <motion.p variants={fadeUp} className="mt-2 font-script text-[2.1rem] leading-tight text-ink">
+          <motion.p variants={fadeUp} className="mt-2 font-script text-[1.9rem] leading-tight text-ink sm:text-[2.1rem]">
             {site.couple}
           </motion.p>
 
-          <motion.span variants={fadeUp} className="mx-auto mt-6 block h-px w-10 bg-ink/25" />
+          <motion.span variants={fadeUp} className="mx-auto mt-5 block h-px w-10 bg-ink/25 sm:mt-6" />
 
           <motion.h2
             variants={fadeUp}
-            className="mt-7 font-display text-[clamp(2.8rem,12vw,3.6rem)] leading-none font-light text-ink"
+            className="mt-5 px-1 text-balance break-words font-display text-[clamp(2.1rem,9.5vw,3.6rem)] leading-tight font-light text-ink sm:mt-7"
           >
             {bridesmaid.shortName}
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="mt-3 font-display text-[1.5rem] text-ink-soft italic">
+          <motion.p variants={fadeUp} className="mt-2 font-display text-[1.3rem] text-ink-soft italic sm:mt-3 sm:text-[1.5rem]">
             {bridesmaid.role}
           </motion.p>
 
           {isChief && (
-            <motion.p variants={fadeUp} className="eyebrow mt-3 text-ink-soft">
+            <motion.p variants={fadeUp} className="eyebrow mt-2.5 text-ink-soft sm:mt-3">
               {bridesmaid.weddingRole}
             </motion.p>
           )}
 
-          <motion.p variants={fadeUp} className="mx-auto mt-7 max-w-[24ch] text-[0.95rem] leading-relaxed text-ink-soft">
+          <motion.p variants={fadeUp} className="mx-auto mt-5 max-w-[24ch] text-[0.88rem] leading-relaxed text-ink-soft sm:mt-7 sm:text-[0.95rem]">
             You are officially part of my bridal party. 🤍
           </motion.p>
 
-          <motion.div variants={fadeUp} className="mt-8 flex items-center gap-3">
+          <motion.div variants={fadeUp} className="mt-6 flex items-center gap-3 sm:mt-8">
             <span className="h-px flex-1 bg-line" />
             <span className="eyebrow">{colors.length > 1 ? 'Your colors' : 'Your color'}</span>
             <span className="h-px flex-1 bg-line" />
           </motion.div>
 
-          <motion.div variants={fadeUp} className="mt-6 flex flex-col items-center">
+          <motion.div variants={fadeUp} className="mt-5 flex flex-col items-center sm:mt-6">
             <div className="flex -space-x-2">
               {colors.map((c) => (
                 <span
                   key={c.name}
-                  className="h-11 w-11 rounded-full border-[3px] border-paper shadow-[0_6px_14px_-6px_rgba(60,45,30,.4)]"
+                  className="h-10 w-10 rounded-full border-[3px] border-paper shadow-[0_6px_14px_-6px_rgba(60,45,30,.4)] sm:h-11 sm:w-11"
                   style={{ backgroundColor: c.hex }}
                 />
               ))}
             </div>
-            <p className="mt-4 font-display text-[1.75rem] leading-tight font-medium text-ink">
+            <p className="mt-3.5 font-display text-[1.5rem] leading-tight font-medium text-ink sm:mt-4 sm:text-[1.75rem]">
               {colors.map((c) => c.name).join(' / ')}
             </p>
-            <p className="mt-1 font-display text-base text-muted italic">{colors.map((c) => c.hex).join(' · ')}</p>
+            <p className="mt-1 font-display text-sm text-muted italic sm:text-base">{colors.map((c) => c.hex).join(' · ')}</p>
           </motion.div>
         </motion.div>
       </motion.article>

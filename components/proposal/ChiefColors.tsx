@@ -18,20 +18,20 @@ export function ChiefColors({ bridesmaid, onContinue }: Readonly<Props>) {
       variants={stagger(0.4, 0.2)}
       initial="hidden"
       animate="show"
-      className="flex flex-1 flex-col items-center justify-center px-6 pt-8 pb-20 text-center"
+      className="flex flex-1 flex-col items-center justify-center px-4 pt-6 pb-16 text-center sm:px-6 sm:pt-8 sm:pb-20"
     >
-      <motion.p variants={fadeUp} className="font-display text-[1.5rem] text-muted italic sm:text-[1.7rem]">
+      <motion.p variants={fadeUp} className="font-display text-[1.35rem] text-muted italic sm:text-[1.7rem]">
         Now, about your colors...
       </motion.p>
 
       <motion.h2
         variants={fadeUp}
-        className="mt-7 max-w-lg font-display text-[clamp(2rem,7vw,3.1rem)] leading-[1.12] font-light text-balance text-ink"
+        className="mt-6 max-w-lg px-2 font-display text-[clamp(1.8rem,6.5vw,3.1rem)] leading-[1.14] font-light text-balance text-ink sm:mt-7"
       >
         My girls are finding their colors by chance.
       </motion.h2>
 
-      <motion.p variants={fadeUp} className="mt-6 font-display text-[1.45rem] font-semibold text-ink italic">
+      <motion.p variants={fadeUp} className="mt-5 px-2 font-display text-[1.3rem] font-semibold text-ink italic sm:mt-6 sm:text-[1.45rem]">
         But you, my anchor, were never left to chance.
       </motion.p>
 
@@ -40,7 +40,7 @@ export function ChiefColors({ bridesmaid, onContinue }: Readonly<Props>) {
           hidden: { opacity: 0, y: 40 },
           show: { opacity: 1, y: 0, transition: { duration: 1.3, ease: easeSoft } },
         }}
-        className="mt-14 flex items-end justify-center gap-5 sm:gap-8"
+        className="mt-10 flex items-end justify-center gap-3.5 sm:mt-14 sm:gap-8"
       >
         {colors.map((color, index) => (
           <figure key={color.name} className="flex flex-col items-center">
@@ -48,7 +48,7 @@ export function ChiefColors({ bridesmaid, onContinue }: Readonly<Props>) {
               initial={{ rotate: index === 0 ? -4 : 4 }}
               animate={{ rotate: index === 0 ? -2 : 2 }}
               transition={{ duration: 4, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
-              className="relative h-50 w-33 overflow-hidden rounded-t-full rounded-b-xl sm:h-62.5 sm:w-41"
+              className="relative h-46 w-30 overflow-hidden rounded-t-full rounded-b-xl sm:h-62.5 sm:w-41"
               style={{
                 background:
                   index === 0
@@ -58,11 +58,11 @@ export function ChiefColors({ bridesmaid, onContinue }: Readonly<Props>) {
               }}
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_18%,rgba(255,255,255,.5),transparent_55%)]" />
-              <div className="absolute inset-2.5 rounded-t-full rounded-b-[7px] border border-white/40" />
+              <div className="absolute inset-2 rounded-t-full rounded-b-[7px] border border-white/40 sm:inset-2.5" />
             </motion.div>
-            <figcaption className="mt-5">
-              <span className="block font-display text-xl text-ink">{color.name}</span>
-              <span className="mt-1 block font-mono text-[0.7rem] tracking-[0.2em] text-muted">{color.hex}</span>
+            <figcaption className="mt-4 sm:mt-5">
+              <span className="block font-display text-lg text-ink sm:text-xl">{color.name}</span>
+              <span className="mt-0.5 block font-mono text-[0.65rem] tracking-[0.18em] text-muted sm:mt-1 sm:text-[0.7rem] sm:tracking-[0.2em]">{color.hex}</span>
             </figcaption>
           </figure>
         ))}
@@ -70,7 +70,7 @@ export function ChiefColors({ bridesmaid, onContinue }: Readonly<Props>) {
 
       <motion.p
         variants={fadeUp}
-        className="mt-12 font-display text-[clamp(1.9rem,7vw,2.6rem)] tracking-[0.06em] text-ink uppercase"
+        className="mt-10 px-2 font-display text-[clamp(1.6rem,6.5vw,2.6rem)] tracking-[0.04em] text-ink uppercase sm:mt-12 sm:tracking-[0.06em]"
       >
         Champagne Gold <span className="text-muted">/</span> Wine
       </motion.p>

@@ -34,16 +34,16 @@ export default async function HomePage() {
       <Backdrop />
 
       {/* Top Bar */}
-      <header className="relative z-10 mx-auto flex w-full max-w-4xl items-center justify-between px-6 pt-8 sm:px-10">
+      <header className="relative z-10 mx-auto flex w-full max-w-4xl items-center justify-between px-4 pt-6 sm:px-10 sm:pt-8">
         <Image
           src={site.logo}
           alt={site.couple}
           width={44}
           height={44}
           priority
-          className="h-10 w-10 object-contain drop-shadow-xs"
+          className="h-9 w-9 object-contain drop-shadow-xs sm:h-10 sm:w-10"
         />
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/admin"
             className="btn-ghost text-xs"
@@ -59,21 +59,21 @@ export default async function HomePage() {
       </header>
 
       {/* Hero */}
-      <main className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center px-6 pt-12 pb-24 text-center">
+      <main className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center px-4 pt-8 pb-16 text-center sm:px-6 sm:pt-12 sm:pb-24">
         <p className="eyebrow">Personal Letters From</p>
-        <h1 className="mt-4 font-display text-[clamp(2.8rem,9vw,5.5rem)] leading-[0.95] font-light tracking-tight text-ink">
+        <h1 className="mt-3 px-2 text-balance font-display text-[clamp(2.4rem,9vw,5.5rem)] leading-[0.95] font-light tracking-tight text-ink sm:mt-4">
           Toluwani
         </h1>
-        <p className="mt-4 max-w-md font-display text-xl text-muted italic sm:text-2xl">
+        <p className="mt-3 max-w-md px-2 font-display text-lg text-muted italic sm:mt-4 sm:text-2xl">
           To the women who anchor me, bring the laughter, and walk with me into this new chapter.
         </p>
 
-        <div className="my-10 h-px w-16 bg-line" />
+        <div className="my-8 h-px w-14 bg-line sm:my-10 sm:w-16" />
 
         {/* Bridesmaid Cards Grid */}
         <section className="w-full">
-          <p className="eyebrow mb-6">Select a personalized letter</p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <p className="eyebrow mb-5 sm:mb-6">Select a personalized letter</p>
+          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4">
             {girls.map((bridesmaid) => {
               const isChief = bridesmaid.type === 'chief'
 
@@ -81,7 +81,7 @@ export default async function HomePage() {
                 <Link
                   key={bridesmaid.slug}
                   href={`/bridesmaids/${bridesmaid.slug}`}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-paper/75 p-6 text-left shadow-xs backdrop-blur-xs transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 hover:shadow-md"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-paper/75 p-5 text-left shadow-xs backdrop-blur-xs transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 hover:shadow-md sm:p-6"
                 >
                   {isChief && (
                     <div className="absolute top-0 right-0 rounded-bl-lg bg-wine px-3 py-1 font-sans text-[0.6rem] font-semibold tracking-wider text-ivory uppercase">

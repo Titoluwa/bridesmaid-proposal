@@ -42,7 +42,7 @@ export function AdminDashboard({ rows, isPostgres }: Readonly<Props>) {
   }
 
   return (
-    <div className="min-h-screen bg-ivory px-4 py-8 text-ink sm:px-8 sm:py-12">
+    <div className="min-h-screen bg-ivory px-3.5 py-6 text-ink sm:px-8 sm:py-12">
       <div className="mx-auto max-w-5xl">
         {/* Top Header */}
         <header className="flex flex-col gap-4 border-b border-line pb-6 sm:flex-row sm:items-center sm:justify-between">
@@ -58,17 +58,17 @@ export function AdminDashboard({ rows, isPostgres }: Readonly<Props>) {
               <span className="text-muted">·</span>
               <span className="eyebrow">Bridal Party Dashboard</span>
             </div>
-            <h1 className="mt-2 font-display text-3xl font-light text-ink sm:text-4xl">
+            <h1 className="mt-2 font-display text-2xl font-light text-ink sm:text-4xl">
               Proposal Responses &amp; Colors
             </h1>
-            <p className="mt-1 text-sm text-muted">
+            <p className="mt-1 text-xs text-muted sm:text-sm">
               {isPostgres
                 ? 'Connected to Postgres (Neon / Vercel Postgres).'
                 : 'Local JSON storage active (.data/responses.json). Set DATABASE_URL to connect Postgres.'}
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <Link
               href="/"
               className="btn-ghost text-xs"
@@ -87,35 +87,35 @@ export function AdminDashboard({ rows, isPostgres }: Readonly<Props>) {
         </header>
 
         {/* Metric Cards */}
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div className="rounded-xl border border-line bg-paper/60 p-5 shadow-xs">
-            <p className="eyebrow">Total Bridal Party</p>
-            <p className="mt-2 font-display text-3xl text-ink">{rows.length}</p>
-            <p className="mt-1 text-xs text-muted">1 Chief · 7 Bridesmaids</p>
+        <div className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-8 sm:grid-cols-4 sm:gap-4">
+          <div className="rounded-xl border border-line bg-paper/60 p-3.5 shadow-xs sm:p-5">
+            <p className="eyebrow text-[0.62rem]">Total Party</p>
+            <p className="mt-1.5 font-display text-2xl text-ink sm:mt-2 sm:text-3xl">{rows.length}</p>
+            <p className="mt-1 text-[0.7rem] text-muted sm:text-xs">1 Chief · 7 Bridesmaids</p>
           </div>
 
-          <div className="rounded-xl border border-line bg-paper/60 p-5 shadow-xs">
-            <p className="eyebrow">Letters Opened</p>
-            <p className="mt-2 font-display text-3xl text-ink">
-              {openedCount} <span className="text-lg text-muted">/ {rows.length}</span>
+          <div className="rounded-xl border border-line bg-paper/60 p-3.5 shadow-xs sm:p-5">
+            <p className="eyebrow text-[0.62rem]">Opened</p>
+            <p className="mt-1.5 font-display text-2xl text-ink sm:mt-2 sm:text-3xl">
+              {openedCount} <span className="text-base text-muted sm:text-lg">/ {rows.length}</span>
             </p>
-            <p className="mt-1 text-xs text-muted">{openedCount === rows.length ? 'All opened! 💌' : 'Waiting on others'}</p>
+            <p className="mt-1 text-[0.7rem] text-muted sm:text-xs">{openedCount === rows.length ? 'All opened! 💌' : 'Waiting'}</p>
           </div>
 
-          <div className="rounded-xl border border-line bg-paper/60 p-5 shadow-xs">
-            <p className="eyebrow">Accepted (Yes)</p>
-            <p className="mt-2 font-display text-3xl text-sage">
-              {acceptedCount} <span className="text-lg text-muted">/ {rows.length}</span>
+          <div className="rounded-xl border border-line bg-paper/60 p-3.5 shadow-xs sm:p-5">
+            <p className="eyebrow text-[0.62rem]">Accepted</p>
+            <p className="mt-1.5 font-display text-2xl text-sage sm:mt-2 sm:text-3xl">
+              {acceptedCount} <span className="text-base text-muted sm:text-lg">/ {rows.length}</span>
             </p>
-            <p className="mt-1 text-xs text-muted">{acceptedCount > 0 ? 'Said yes! 🤍' : 'Awaiting responses'}</p>
+            <p className="mt-1 text-[0.7rem] text-muted sm:text-xs">{acceptedCount > 0 ? 'Said yes! 🤍' : 'Awaiting'}</p>
           </div>
 
-          <div className="rounded-xl border border-line bg-paper/60 p-5 shadow-xs">
-            <p className="eyebrow">Colors Assigned</p>
-            <p className="mt-2 font-display text-3xl text-ink">
-              {colorCount} <span className="text-lg text-muted">/ {rows.length}</span>
+          <div className="rounded-xl border border-line bg-paper/60 p-3.5 shadow-xs sm:p-5">
+            <p className="eyebrow text-[0.62rem]">Colors</p>
+            <p className="mt-1.5 font-display text-2xl text-ink sm:mt-2 sm:text-3xl">
+              {colorCount} <span className="text-base text-muted sm:text-lg">/ {rows.length}</span>
             </p>
-            <p className="mt-1 text-xs text-muted">Persistent palette</p>
+            <p className="mt-1 text-[0.7rem] text-muted sm:text-xs">Persistent palette</p>
           </div>
         </div>
 

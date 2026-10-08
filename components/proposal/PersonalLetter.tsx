@@ -14,12 +14,12 @@ type Props = {
 
 export function PersonalLetter({ bridesmaid, onContinue }: Readonly<Props>) {
   return (
-    <section className="flex flex-1 flex-col items-center px-4 pt-8 pb-20 sm:px-6 sm:pt-12">
+    <section className="flex flex-1 flex-col items-center px-3.5 pt-6 pb-16 sm:px-6 sm:pt-12 sm:pb-20">
       <motion.article
         initial={{ opacity: 0, y: 60, rotate: -0.8 }}
         animate={{ opacity: 1, y: 0, rotate: 0 }}
         transition={{ duration: 1.2, ease: easeSoft }}
-        className="letter-paper paper-grain w-full max-w-145 rounded-xs px-7 pt-10 pb-12 sm:px-14 sm:pt-14 sm:pb-16"
+        className="letter-paper paper-grain w-full max-w-145 rounded-xs px-5 pt-8 pb-10 sm:px-14 sm:pt-14 sm:pb-16"
         aria-labelledby="letter-salutation"
       >
         {/* accent edge */}
@@ -42,12 +42,12 @@ export function PersonalLetter({ bridesmaid, onContinue }: Readonly<Props>) {
           initial="hidden"
           animate="show"
           custom={0.5}
-          className="mt-10 font-script text-[2.6rem] leading-tight text-ink sm:text-[3.2rem]"
+          className="mt-7 font-script text-[clamp(2.1rem,8vw,3.2rem)] leading-tight text-ink break-words sm:mt-10"
         >
           {bridesmaid.salutation}
         </motion.h2>
 
-        <div className="rich mt-6 space-y-5 font-display text-[1.24rem] leading-[1.7] font-medium text-ink-soft sm:text-[1.32rem]">
+        <div className="rich mt-6 space-y-4 font-display text-[1.12rem] leading-[1.65] font-medium text-ink-soft sm:space-y-5 sm:text-[1.32rem] sm:leading-[1.7]">
           {bridesmaid.letter.map((paragraph, index) => {
             const itemKey = `letter-para-${index + 1}`
             return (

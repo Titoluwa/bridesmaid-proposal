@@ -52,7 +52,7 @@ export function EnvelopeIntro({
       variants={stagger(0.18, 0.2)}
       initial="hidden"
       animate="show"
-      className="flex flex-1 flex-col items-center justify-center px-6 pt-10 pb-16 text-center"
+      className="flex flex-1 flex-col items-center justify-center px-4 pt-6 pb-14 text-center sm:px-6 sm:pt-10 sm:pb-16"
     >
       <motion.p variants={fadeUp} className="eyebrow">
         A little letter for
@@ -60,16 +60,16 @@ export function EnvelopeIntro({
 
       <motion.h1
         variants={fadeUp}
-        className="mt-4 font-display text-[clamp(3.4rem,15vw,7rem)] leading-[0.92] font-light tracking-tight text-ink"
+        className="mt-3 px-2 text-balance break-words font-display text-[clamp(2.3rem,11vw,6.5rem)] leading-[0.95] font-light tracking-tight text-ink"
       >
         {bridesmaid.shortName}
       </motion.h1>
 
-      <motion.p variants={fadeUp} className="mt-5 font-display text-[1.35rem] text-muted italic">
+      <motion.p variants={fadeUp} className="mt-4 font-display text-[1.2rem] text-muted italic sm:mt-5 sm:text-[1.35rem]">
         From your bride-to-be 🤍
       </motion.p>
 
-      <motion.div variants={fadeUp} className="mt-24 mb-14 sm:mt-28">
+      <motion.div variants={fadeUp} className="mt-16 mb-10 sm:mt-28 sm:mb-14">
         <Envelope phase={phase} name={bridesmaid.shortName} wine={isChief} onClick={open} />
       </motion.div>
 
